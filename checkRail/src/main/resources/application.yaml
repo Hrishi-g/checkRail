@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: checkRail
+  config:
+    import: optional:file:.env[.properties]
+
+app:
+  cache:
+    live-status-ttl-seconds: 25
+    search-results-ttl-minutes: 5
+  irctc:
+    base-url: ${IRCTC_BASE_URL:https://api.irctc.dev}
+    api-key: ${IRCTC_API_KEY}
+  refresh-interval-seconds: 30
+  cors:
+    allowed-origins:
+      - http://localhost:5173
+      - http://localhost:3000
+      - http://localhost:4173
